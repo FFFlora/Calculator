@@ -1,0 +1,11 @@
+#include "calculatoui.h"
+
+CalculatoUI::CalculatoUI() : QWidget(NULL)
+{
+m_edit = new QLineEdit(this);
+}
+
+CalculatoUI::~CalculatoUI(){
+    
+    
+}

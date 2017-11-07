@@ -1,0 +1,24 @@
+#ifndef __CALCULATOUI_H__
+#define __CALCULATOUI_H__
+
+#include <QWidget>
+#include <QtGui>
+#include <QApplication>
+#include <QLineEdit>
+#include <QPushButton>
+
+class CalculatoUI : public QWidget
+{
+private:
+    QLineEdit *m_edit;
+    QPushButton * m_button[20];
+    CalculatorUI();
+    bool construct();    
+public：
+static CalculatorUI* NewInstance();
+~CalculatorUI();
+
+ 
+};
+
+#endif // CALCULATOUI_H
