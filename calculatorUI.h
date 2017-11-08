@@ -6,6 +6,7 @@
 #include <QApplication>
 #include <QLineEdit>
 #include <QPushButton>
+#include <QString>
 
 class CalculatorUI : public QWidget
 {

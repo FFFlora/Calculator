@@ -24,10 +24,12 @@ bool CalculatorUI::construct(){
         "0",".","=","/","C"
     };
     m_edit = new QLineEdit(this);
+
     if(m_edit!=NULL){
         m_edit->move(10,10);
         m_edit->resize(240,30);
         m_edit->setReadOnly(true);
+        m_edit->setAlignment(Qt::AlignRight);
     }
     else ret = false;
     for (int i=0;(i<4)&& ret; i++){
@@ -49,8 +51,29 @@ bool CalculatorUI::construct(){
 
 void CalculatorUI::onButtonClicked(){
     QPushButton *btn = (QPushButton*)sender();
-    qDebug()<<"onButtonClicked()";
-    qDebug()<<btn->text();
+    QString text = m_edit->text()+ btn->text();
+
+    QString clickedText = btn->text();
+    if ( clickedText == "<-"){
+        QString text = m_edit->text();
+        if (text.length() > 0){
+            text.remove(text.length()-1,1);
+            m_edit->setText(text);
+        }
+        else if (text.length() == 0){
+            m_edit->setText("");
+        }
+    }
+    else if (clickedText == "C"){
+        m_edit ->setText("");
+    }
+    else if (clickedText == "="){
+    //////TODO
+
+    }
+    else {
+        m_edit->setText(m_edit->text() +clickedText);
+    }
 }
 CalculatorUI::~CalculatorUI(){
 
