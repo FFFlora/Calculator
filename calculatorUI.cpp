@@ -1,5 +1,5 @@
 #include "calculatorUI.h"
-
+#include <QDebug>
 CalculatorUI::CalculatorUI() : QWidget(NULL, Qt::WindowCloseButtonHint)
 {
 
@@ -30,7 +30,6 @@ bool CalculatorUI::construct(){
         m_edit->setReadOnly(true);
     }
     else ret = false;
-
     for (int i=0;(i<4)&& ret; i++){
         for (int j=0 ; j<5 && ret; j++){
             m_button[i*5 + j] = new QPushButton(this);
@@ -38,12 +37,20 @@ bool CalculatorUI::construct(){
                 m_button[i*5 + j]->resize(40,40);
                 m_button[i*5 + j]->move(10+(10+40)*j, 50+(50)*i);
                 m_button[i*5 + j]->setText(btnText[i*5 + j]);
+                connect(m_button[i*5 + j],SIGNAL(clicked()),this, SLOT(onButtonClicked()));
             }
             else ret = false;
         }
     }
 
     return ret;
+}
+
+
+void CalculatorUI::onButtonClicked(){
+    QPushButton *btn = (QPushButton*)sender();
+    qDebug()<<"onButtonClicked()";
+    qDebug()<<btn->text();
 }
 CalculatorUI::~CalculatorUI(){
 

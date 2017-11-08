@@ -9,12 +9,14 @@
 
 class CalculatorUI : public QWidget
 {
+    Q_OBJECT
 private:
     QLineEdit *m_edit;
     QPushButton * m_button[20];
     CalculatorUI();
     bool construct();
-
+private slots:
+    void onButtonClicked();
 public:
    static CalculatorUI* NewInstance();
     ~CalculatorUI();
