@@ -1,7 +1,7 @@
 #include <QtGui>
 #include <QApplication>
 #include "calculatorUI.h"
-
+#include "qcalculatordec.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -16,9 +16,8 @@ int main(int argc, char *argv[])
         delete cal;
     }
 
-    return ret;
 
-
+return ret;
 }
 /*
  #### 解决经典问题：Object::conect: No such slot...
